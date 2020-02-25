@@ -6,7 +6,7 @@ Unit:
 Length and energy are the same to your input
 Angle is assumed to be in radius
 
-Default file format: 
+Default file format:
 internal coordinate definition: Fortran-Library default format
 geometry: 3 numbers/line for internal coordinate, xyz for Cartesian coordinate
 gradient: 3 numbers/line

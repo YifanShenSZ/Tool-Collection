@@ -1,7 +1,7 @@
 """
 Standardize a geometry
 
-Default file format: 
+Default file format:
 geometry: xyz
 mass: 3 numbers/line
 """
@@ -27,6 +27,7 @@ if __name__ == "__main__":
     ''' Initialize '''
     # Command line input
     args = parse_args()
+    # Read geometry and mass
     if args.format == 'Columbus7':
         NAtoms, symbol, number, r, mass = basic.read_geom_Columbus7(args.geom)
     else:
