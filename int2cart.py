@@ -62,10 +62,10 @@ if __name__ == "__main__":
     ''' Do the job '''
     cartdim = 3*NAtoms; r = numpy.empty(cartdim)
     if args.grad == None:
-        FL.CartesianCoordinate(q, r, intdim, cartdim, r0=r0)
+        FL.CartesianCoordinate(q, r, r0=r0)
     else:
         cartgrad = numpy.empty(cartdim)
-        FL.Internal2Cartesian(q, intgrad, r, cartgrad, intdim, cartdim, 1, r0=r0)
+        FL.Internal2Cartesian(q, intgrad, r, cartgrad, r0=r0)
     ''' Output '''
     if args.format == 'Columbus7':
         if args.output == None:
