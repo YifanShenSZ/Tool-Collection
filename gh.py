@@ -12,7 +12,7 @@ import argparse
 from pathlib import Path
 import numpy
 import FortranLibrary as FL
-import basic
+import basic.io
 
 ''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
@@ -29,19 +29,18 @@ def parse_args() -> argparse.Namespace: # Command line input
 
 if __name__ == "__main__":
     ''' Initialize '''
-    # Command line input
     args = parse_args()
     # Read gradient
-    grad1 = basic.read_grad(args.grad1)
-    grad2 = basic.read_grad(args.grad2)
-    h     = basic.read_grad(args.h    )
-    if args.geom != None: NAtoms, symbol, r = basic.read_geom_xyz(args.geom)
+    grad1 = basic.io.read_grad_cart(args.grad1)
+    grad2 = basic.io.read_grad_cart(args.grad2)
+    h     = basic.io.read_grad_cart(args.h    )
+    if args.geom != None: NAtoms, symbol, r = basic.io.read_geom_xyz(args.geom)
     ''' Do the job '''
     FL.ghOrthogonalization(grad1, grad2, h)
     ''' Output '''
     g = (grad2 - grad1) / 2.0
-    basic.write_grad(args.goutput, g)
-    basic.write_grad(args.houtput, h)
+    basic.io.write_grad_cart(args.goutput, g)
+    basic.io.write_grad_cart(args.houtput, h)
     if args.geom != None:
         freq = numpy.array([1000.0,2000.0])
         # Here we use infinity-norm to normalize g & h vectors to 9.99

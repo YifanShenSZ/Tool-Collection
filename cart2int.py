@@ -9,7 +9,9 @@ Angle is in radius
 Default file format: 
 internal coordinate definition: Fortran-Library default format
 geometry: xyz for Cartesian coordinate, 3 numbers/line for internal coordinate
+          output = input.intgeom
 gradient: 3 numbers/line
+          output = input.intgrad
 """
 
 ''' Library '''
@@ -17,7 +19,7 @@ import argparse
 from pathlib import Path
 import numpy
 import FortranLibrary as FL
-import basic
+import basic.io
 
 ''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
@@ -33,19 +35,18 @@ def parse_args() -> argparse.Namespace: # Command line input
 
 if __name__ == "__main__":
     ''' Initialize '''
-    # Command line input
     args = parse_args()
     if args.format == 'Columbus7':
         # Define internal coordinate
         intdim = FL.DefineInternalCoordinate('Columbus7', file=args.IntCoordDef)
         # Read geometry
-        NAtoms, symbol, number, r, mass = basic.read_geom_Columbus7(args.geom)
+        NAtoms, symbol, number, r, mass = basic.io.read_geom_Columbus7(args.geom)
     else:
         # Define internal coordinate
         intdim = FL.DefineInternalCoordinate(args.format, file=args.IntCoordDef)
         # Read geometry
-        NAtoms, symbol, r = basic.read_geom_xyz(args.geom)
-    if args.grad != None: cartgrad = basic.read_grad(args.grad)
+        NAtoms, symbol, r = basic.io.read_geom_xyz(args.geom)
+    if args.grad != None: cartgrad = basic.io.read_grad_cart(args.grad)
     ''' Do the job '''
     cartdim=3*NAtoms; q = numpy.empty(intdim)
     if args.grad == None:
@@ -70,11 +71,11 @@ if __name__ == "__main__":
                     for i in range(intdim): print('%14.8f'%intgrad[i], file=f)
     else:
         if args.output == None:
-            basic.write_vector_int(Path(str(args.geom)+'.intgeom'), q)
+            basic.io.write_geom_int(Path(str(args.geom)+'.intgeom'), q)
         else:
-            basic.write_vector_int(args.output, q)
+            basic.io.write_geom_int(args.output, q)
         if args.grad != None:
             if args.gradoutput == None:
-                basic.write_vector_int(Path(str(args.grad)+'.intgrad'), intgrad)
+                basic.io.write_grad_int(Path(str(args.grad)+'.intgrad'), intgrad)
             else:
-                basic.write_vector_int(args.gradoutput, intgrad)
+                basic.io.write_grad_int(args.gradoutput, intgrad)
