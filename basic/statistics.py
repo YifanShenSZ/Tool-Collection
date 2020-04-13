@@ -1,8 +1,8 @@
-"""
+'''
 This is one of the basics of Tool-Collection
 
 Basic statistics routines
-"""
+'''
 
 import numpy; import numpy.linalg
 

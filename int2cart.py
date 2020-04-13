@@ -1,4 +1,4 @@
-"""
+'''
 Convert geometry from internal coordinate to Cartesian coordinate
 Optionally, convert gradient as well
 
@@ -12,16 +12,14 @@ geometry: 3 numbers/line for internal coordinate, xyz for Cartesian coordinate
           output = input.xyz
 gradient: 3 numbers/line
           output = input.cartgrad
-"""
+'''
 
-''' Library '''
 import argparse
 from pathlib import Path
 import numpy
 import FortranLibrary as FL
 import basic.io
 
-''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('format', type=str, help='File format: Columbus7 or default')

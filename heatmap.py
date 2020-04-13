@@ -1,4 +1,4 @@
-"""
+'''
 Plot a heat map
 
 File format:
@@ -7,9 +7,8 @@ z:  n numbers/line, each column will be plotted as a heat map
     if xy is present: the ordering of data will be infered from xy
     else: number of lines must be a perfect square
           ordering e.g. 2 x 2 case, z[0,0], z[0,1], z[1,0], z[1,1] 
-"""
+'''
 
-''' Library '''
 import argparse
 from pathlib import Path
 import numpy as numpy
@@ -17,7 +16,6 @@ import matplotlib.pyplot as plt
 import basic.io
 import basic.visualization
 
-''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('-xy', type=Path, help='x file')

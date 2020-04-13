@@ -1,19 +1,17 @@
-"""
+'''
 Plot all kinds of 2-dimensional figures
 
 File format:
 x: 1 number/line
 y: n numbers/line, each column will be plotted as a series
-"""
+'''
 
-''' Library '''
 import argparse
 from pathlib import Path
 import numpy
 import basic.io
 import basic.visualization
 
-''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('-x', type=Path, help='x file')

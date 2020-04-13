@@ -1,20 +1,18 @@
-"""
+'''
 Orthogonalize g & h vectors
 Optionally, produce a file with geometry + g & h vectors visualizable in Avogadro
 
 File format:
 geometry: xyz
 gradient: 3 numbers/line
-"""
+'''
 
-''' Library '''
 import argparse
 from pathlib import Path
 import numpy
 import FortranLibrary as FL
 import basic.io
 
-''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('grad1', type=Path, help='state 1 energy gradient file')

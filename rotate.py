@@ -1,4 +1,4 @@
-"""
+'''
 Rotate a geometry
 
 The rotation is defined by:
@@ -8,16 +8,14 @@ axis = [sin(theta)cos(phi), sin(theta)sin(phi), cos(theta)]
 Default file format: 
 geometry: xyz
           output = input.xyz
-"""
+'''
 
-''' Library '''
 import argparse
 from pathlib import Path
 import math; import numpy
 import FortranLibrary as FL
 import basic.io
 
-''' Routine '''
 def parse_args() -> argparse.Namespace: # Command line input
     parser = argparse.ArgumentParser(__doc__)
     parser.add_argument('format', type=str, help='File format: Columbus7 or default')
