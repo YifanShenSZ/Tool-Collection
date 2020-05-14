@@ -1,5 +1,5 @@
 '''
-Calculate geometric phase from:
+Calculate berry phase of a 2-state conical intersection from:
     g & h vectors
     a mesh in g-h plane
 
