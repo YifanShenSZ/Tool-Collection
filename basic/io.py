@@ -61,7 +61,7 @@ def write_vector_3(file:Path, vector:List) -> None:
             print(('%20.14f%20.14f')%(vector[size-2],vector[size-1]), file=f)
 
 # Read a matrix from file
-def read_matrix(file:Path) -> (int, numpy.ndarray):
+def read_matrix(file:Path) -> numpy.ndarray:
     with open(file,'r') as f: lines = f.readlines()
     temp = lines[0].split()
     size0 = len(lines); size1 = len(temp)
