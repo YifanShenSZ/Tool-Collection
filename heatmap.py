@@ -18,8 +18,8 @@ import basic.visualization
 
 def parse_args() -> argparse.Namespace: # Command line input
     parser = argparse.ArgumentParser(__doc__)
-    parser.add_argument('-xy', type=Path, help='x file')
-    parser.add_argument(  'z', type=Path, help='z file')
+    parser.add_argument('-xy', type=Path, help='xy file')
+    parser.add_argument(  'z', type=Path, help= 'z file')
     parser.add_argument('ZeroPoint_z', nargs='?', type=float, default=0, help='z -= ZeroPoint_z (default = 0)')
     parser.add_argument('-sz','--scale_z', type=float, default=1, help='z *= scale_z (after zero point shift) (default = 1)')
     parser.add_argument('-t','--title', type=str, default=' ', help='default = ')
