@@ -60,6 +60,15 @@ def write_vector_3(file:Path, vector:List) -> None:
         else: # 2
             print(('%20.14f%20.14f')%(vector[size-2],vector[size-1]), file=f)
 
+# Read 2 vectors from file (2 numbers/line), each column is a vector
+def read_2vectors(file:Path) -> numpy.ndarray:
+    with open(file,'r') as f: lines = f.readlines()
+    size = len(lines); x = numpy.empty(size); y = numpy.empty(size)
+    for i in range(size):
+        temp = lines[i].split()
+        x[i] = float(temp[0]); y[i] = float(temp[1])
+    return x, y
+
 # Read a matrix from file
 def read_matrix(file:Path) -> numpy.ndarray:
     with open(file,'r') as f: lines = f.readlines()
