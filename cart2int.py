@@ -36,12 +36,12 @@ if __name__ == "__main__":
     args = parse_args()
     if args.format == 'Columbus7':
         # Define internal coordinate
-        intdim = FL.DefineInternalCoordinate('Columbus7', file=args.IntCoordDef)
+        intdim, _ = FL.DefineInternalCoordinate('Columbus7', file=args.IntCoordDef)
         # Read geometry
         NAtoms, symbol, number, r, mass = basic.io.read_geom_Columbus7(args.geom)
     else:
         # Define internal coordinate
-        intdim = FL.DefineInternalCoordinate(args.format, file=args.IntCoordDef)
+        intdim, _ = FL.DefineInternalCoordinate(args.format, file=args.IntCoordDef)
         # Read geometry
         NAtoms, symbol, r = basic.io.read_geom_xyz(args.geom)
     if args.grad != None: cartgrad = basic.io.read_grad_cart(args.grad)

@@ -37,7 +37,7 @@ if __name__ == "__main__":
     args = parse_args()
     if args.format == 'Columbus7':
         # Define internal coordinate
-        intdim = FL.DefineInternalCoordinate('Columbus7', file=args.IntCoordDef)
+        intdim, _ = FL.DefineInternalCoordinate('Columbus7', file=args.IntCoordDef)
         # Read geometry
         q = basic.io.read_geom_int(args.geom,intdim)
         # Read initial Cartesian guess geometry
@@ -46,7 +46,7 @@ if __name__ == "__main__":
         if args.grad != None: intgrad = basic.io.read_grad_int(args.grad,intdim)
     else:
         # Define internal coordinate
-        intdim = FL.DefineInternalCoordinate(args.format, file=args.IntCoordDef)
+        intdim, _ = FL.DefineInternalCoordinate(args.format, file=args.IntCoordDef)
         # Read geometry
         q = basic.io.read_geom_int(args.geom,intdim)
         # Read initial Cartesian guess geometry
