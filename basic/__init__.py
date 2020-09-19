@@ -1,1 +1,3 @@
-__all__ = ['general', 'io', 'statistics', 'visualization']
+__all__ = ['utility', 'io', 
+'LinearAlgebra',
+'statistics', 'visualization']

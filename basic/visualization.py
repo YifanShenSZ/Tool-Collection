@@ -9,7 +9,7 @@ import numpy
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.animation as anm
-from .general import Pick_Significant
+from .utility import Pick_Significant
 
 # vector x, matrix y, (x[i], y[j,i]) is the coordinate of point_i in j-th series
 # when there is only 1 series, y can alternatively be passed as a vector

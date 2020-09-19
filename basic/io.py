@@ -6,7 +6,8 @@ Input/Output routines
 
 from pathlib import Path
 from typing import List
-import math; import numpy
+import math
+import numpy
 
 # Read a vector from file (1 number/line)
 def read_vector_1(file:Path) -> numpy.ndarray:
@@ -70,8 +71,9 @@ def read_2vectors(file:Path) -> numpy.ndarray:
     return x, y
 
 # Read a matrix from file
-def read_matrix(file:Path) -> numpy.ndarray:
+def read_matrix(file:Path, title_line:bool=False) -> numpy.ndarray:
     with open(file,'r') as f: lines = f.readlines()
+    if title_line: del lines[0]
     temp = lines[0].split()
     size0 = len(lines); size1 = len(temp)
     m = numpy.empty((size0, size1))

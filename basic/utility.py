@@ -4,8 +4,10 @@ This is one of the basics of Tool-Collection
 General basic constants and routines
 '''
 
+import sys
 from pathlib import Path
 from typing import List
+import datetime
 import numpy; import numpy.linalg
 
 AMUInAU  = 1822.888486192
@@ -15,20 +17,22 @@ AUIncm_1 = 219474.60356444737
 AUIneV   = 27.2114
 fsInAU   = 41.341373336561354
 
-# take in numpy.array x and tolerance tol
+def ShowTime():
+    now = datetime.datetime.now()
+    print (now.strftime("%Y-%m-%d %H:%M:%S"))
+
+def EchoCommand():
+    print('Echo of user command line input:')
+    for arg in sys.argv: print(arg, end=' ')
+    print()
+
+# take in list x and tolerance tol
 # return the indice list of elements with absolute value > tol
-def Pick_Significant(x:numpy.ndarray, tol:float) -> List:
+def Pick_Significant(x:List, tol:float) -> List:
     indice=[]
     for i in range(x.shape[0]):
         if abs(x[i]) > tol: indice.append(i)
     return indice
-
-# vector a & b, return a b
-def vector_direct_product(a:numpy.ndarray, b:numpy.ndarray) -> numpy.ndarray:
-    m = a.shape[0]; n = b.shape[0]; c = numpy.empty((m,n))
-    for i in range(m):
-        for j in range(n): c[i,j] = a[i] * b[j]
-    return c
 
 # 3 x NAtoms matrix geom, NAtoms dimensional numpy.array mass
 # Return eigenvalues and eigenvectors of moment of inertia tensor in centre of mass frame
