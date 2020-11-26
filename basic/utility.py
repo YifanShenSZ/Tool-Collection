@@ -29,7 +29,7 @@ def EchoCommand():
 # take in list x and tolerance tol
 # return the indice list of elements with absolute value > tol
 def Pick_Significant(x:List, tol:float) -> List:
-    indice=[]
+    indice = []
     for i in range(x.shape[0]):
         if abs(x[i]) > tol: indice.append(i)
     return indice

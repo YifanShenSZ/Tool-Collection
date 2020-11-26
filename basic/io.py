@@ -24,9 +24,9 @@ def read_vector_3(file:Path, size:int = 0) -> numpy.ndarray:
         v = numpy.empty(int(3*n))
         for i in range(n):
             temp = lines[i].split()
-            v[3*i  ] = float(temp[0])
-            v[3*i+1] = float(temp[1])
-            v[3*i+2] = float(temp[2])
+            v[3*i  ] = float(temp[0].replace('D', 'e'))
+            v[3*i+1] = float(temp[1].replace('D', 'e'))
+            v[3*i+2] = float(temp[2].replace('D', 'e'))
     else:
         v = numpy.empty(size)
         n = len(lines); m = size % 3
