@@ -51,7 +51,7 @@ def read_vector_3(file:Path, size:int = 0) -> numpy.ndarray:
 def write_vector_3(file:Path, vector:List) -> None:
     size = len(vector)
     with open(file,'a') as f:
-        n = math.ceil(int(size/3)); m = size % 3
+        n = math.ceil(size/3); m = size % 3
         for i in range(n-1):
             print(('%20.14f%20.14f%20.14f')%(vector[3*i],vector[3*i+1],vector[3*i+2]), file=f)
         if m == 0:
