@@ -28,7 +28,7 @@ color='black', PlotType='line') -> None:
     else:
         if len(y.shape) == 1: plt.plot(x, y, color = color)
         else:
-            if len(color) == y.shape[0]:
+            if isinstance(color, list) and len(color) == y.shape[0]:
                 for i in range(y.shape[0]): plt.plot(x, y[i,:], color = color[i])
             else:
                 for i in range(y.shape[0]): plt.plot(x, y[i,:])
