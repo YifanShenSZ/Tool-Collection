@@ -1,8 +1,5 @@
 '''
 Normalize a vector
-
-File format:
-1 number/line
 '''
 
 import argparse
@@ -17,12 +14,14 @@ def parse_args() -> argparse.Namespace: # Command line input
     args = parser.parse_args()
     return args
 
-# Read a vector from file (1 number/line)
+# Read a vector from file
 def read_vector(file:Path) -> numpy.ndarray:
     with open(file,'r') as f: lines = f.readlines()
-    size = len(lines); v = numpy.empty(size)
-    for i in range(size): v[i] = float(lines[i])
-    return v
+    l = []
+    for line in lines:
+        strs = line.split()
+        for str in strs: l.append(float(str))
+    return numpy.array(l)
 # Write a vector to file (1 number/line)
 def write_vector(file:Path, vector:List) -> numpy.ndarray:
     with open(file,'w') as f:
