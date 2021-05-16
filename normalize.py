@@ -31,5 +31,7 @@ def write_vector(file:Path, vector:List) -> numpy.ndarray:
 if __name__ == "__main__":
     args = parse_args()
     v = read_vector(args.v)
-    v /= numpy.linalg.norm(v)
+    norm = numpy.linalg.norm(v)
+    print("Norm =", norm)
+    v /= norm
     write_vector(args.output, v)
