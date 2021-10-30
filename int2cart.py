@@ -68,9 +68,9 @@ if __name__ == "__main__":
             basic.io.write_geom_Columbus7(args.output, NAtoms, symbol, number, r, mass)
         if args.grad != None:
             if args.gradoutput == None:
-                basic.io.write_grad(Path('cartgrd'), cartgrad)
+                basic.io.write_grad_cart(Path('cartgrd'), cartgrad)
             else:
-                basic.io.write_grad(args.gradoutput, cartgrad)
+                basic.io.write_grad_cart(args.gradoutput, cartgrad)
     else:
         if args.output == None:
             basic.io.write_geom_xyz(Path(str(args.geom)+'.xyz'), NAtoms, symbol, r)
@@ -78,6 +78,6 @@ if __name__ == "__main__":
             basic.io.write_geom_xyz(args.output, NAtoms, symbol, r)
         if args.grad != None:
             if args.gradoutput == None:
-                basic.io.write_grad(Path(str(args.grad)+'.cartgrad'), cartgrad)
+                basic.io.write_grad_cart(Path(str(args.grad)+'.cartgrad'), cartgrad)
             else:
-                basic.io.write_grad(args.gradoutput, cartgrad)
+                basic.io.write_grad_cart(args.gradoutput, cartgrad)
