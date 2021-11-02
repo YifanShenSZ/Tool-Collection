@@ -27,6 +27,7 @@
 *.lib
 
 # Executables
+bin/
 build/
 *.exe
 *.out
@@ -34,6 +35,3 @@ build/
 
 # Python cache
 __pycache__/
-
-# VS code
-.vscode/

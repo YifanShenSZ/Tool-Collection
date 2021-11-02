@@ -13,4 +13,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${tchem_CXX_FLAGS}")
 
 add_executable(cart2int.exe main.cpp)
 
-target_link_libraries(cart2int.exe "${tchem_LIBRARIES}")
+target_link_libraries(cart2int.exe ${tchem_LIBRARIES})
