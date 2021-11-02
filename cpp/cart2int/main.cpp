@@ -24,7 +24,7 @@ argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
 }
 
 int main(size_t argc, const char ** argv) {
-    std::cout << "Convert geometry from Cartesian coordinate to symmetry adapted and scaled internal coordinate\n";
+    std::cout << "Convert geometry from Cartesian coordinate to internal coordinate\n";
     argparse::ArgumentParser args = parse_args(argc, argv);
     CL::utility::show_time(std::cout);
     std::cout << '\n';

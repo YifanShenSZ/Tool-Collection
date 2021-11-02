@@ -10,7 +10,7 @@
 argparse::ArgumentParser parse_args(const size_t & argc, const char ** & argv) {
     CL::utility::echo_command(argc, argv, std::cout);
     std::cout << '\n';
-    argparse::ArgumentParser parser("cart2int: Convert geometry from Cartesian coordinate to internal coordinate");
+    argparse::ArgumentParser parser("int2cart: Convert geometry from internal coordinate to Cartesian coordinate");
 
     // required arguments
     parser.add_argument("-f","--format"  , 1, false, "internal coordinate definition format (Columbus7, default)");
@@ -29,7 +29,7 @@ at::Tensor int2cart(const at::Tensor & q, const at::Tensor & init_guess,
 const std::shared_ptr<tchem::IC::IntCoordSet> & _intcoordset);
 
 int main(size_t argc, const char ** argv) {
-    std::cout << "Convert geometry from Cartesian coordinate to symmetry adapted and scaled internal coordinate\n";
+    std::cout << "Convert geometry from internal coordinate to Cartesian coordinate\n";
     argparse::ArgumentParser args = parse_args(argc, argv);
     CL::utility::show_time(std::cout);
     std::cout << '\n';
