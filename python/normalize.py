@@ -32,12 +32,6 @@ if __name__ == "__main__":
     args = parse_args()
     v = read_vector(args.v)
     norm = numpy.linalg.norm(v)
-<<<<<<< HEAD:normalize.py
-    print("Norm =", norm)
-    v /= norm
-    write_vector(args.output, v)
-=======
     print("Norm = ", norm)
     v /= norm
     write_vector(args.output, v)
->>>>>>> 223f0461d43e5523eaec843f81c7df6ac5dd22b2:python/normalize.py
