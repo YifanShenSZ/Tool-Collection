@@ -1,0 +1,15 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "~/Software/Programming/libtorch/include/**",
+                "~/Library/Foptim/include",
+                "~/Library/Cpp-Library/include",
+                "~/Library/Torch-Chemistry/include"
+            ],
+            "cppStandard": "c++14"
+        }
+    ],
+    "version": 4
+}

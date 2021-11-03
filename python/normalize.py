@@ -17,11 +17,12 @@ def parse_args() -> argparse.Namespace: # Command line input
 # Read a vector from file
 def read_vector(file:Path) -> numpy.ndarray:
     with open(file,'r') as f: lines = f.readlines()
-    l = []
+    v = []
     for line in lines:
         strs = line.split()
-        for str in strs: l.append(float(str))
-    return numpy.array(l)
+        for string in strs:
+            v.append(float(string))
+    return numpy.array(v)
 # Write a vector to file (1 number/line)
 def write_vector(file:Path, vector:List) -> numpy.ndarray:
     with open(file,'w') as f:
@@ -31,6 +32,12 @@ if __name__ == "__main__":
     args = parse_args()
     v = read_vector(args.v)
     norm = numpy.linalg.norm(v)
+<<<<<<< HEAD:normalize.py
     print("Norm =", norm)
     v /= norm
     write_vector(args.output, v)
+=======
+    print("Norm = ", norm)
+    v /= norm
+    write_vector(args.output, v)
+>>>>>>> 223f0461d43e5523eaec843f81c7df6ac5dd22b2:python/normalize.py
