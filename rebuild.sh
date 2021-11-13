@@ -1,4 +1,4 @@
-cpp_tools=(translate_IntCoordDef cart2int int2cart cart2SASIC)
+cpp_tools=(translate_IntCoordDef cart2int int2cart)
 
 # rebuild c++ tools
 cd cpp
