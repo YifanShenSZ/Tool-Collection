@@ -1,4 +1,4 @@
-cpp_tools=(translate_IntCoordDef cart2int int2cart)
+cpp_tools=(translate_IntCoordDef cart2int int2cart vibration)
 
 # build c++ tools
 cd cpp
