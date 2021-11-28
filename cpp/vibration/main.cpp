@@ -38,11 +38,13 @@ int main(size_t argc, const char ** argv) {
     std::string geom_file = args.retrieve<std::string>("xyz"),
                 mass_file = args.retrieve<std::string>("mass");
     CL::chem::xyz_mass<double> geom(geom_file, mass_file, true);
+
+    at::Tensor Hessian = tchem::utility::read_vector(args.retrieve<std::string>("Hessian"));
+    int64_t intdim = sqrt(Hessian.numel());
+    Hessian.resize_({intdim, intdim});
+
     std::vector<double> coords = geom.coords();
     at::Tensor r = at::from_blob(coords.data(), coords.size(), at::TensorOptions().dtype(torch::kFloat64));
-
-    at::Tensor Hessian = tchem::utility::read_vector(args.retrieve<std::string>("Hessian")).reshape({r.size(0), r.size(0)});
-   
     at::Tensor q, J;
     std::tie(q, J) = icset.compute_IC_J(r);
     tchem::chem::IntNormalMode intvib(geom.masses(), J, Hessian);
