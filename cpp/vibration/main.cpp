@@ -35,7 +35,7 @@ int main(size_t argc, const char ** argv) {
     std::string IC     = args.retrieve<std::string>("IC");
     tchem::IC::IntCoordSet icset(format, IC);
 
-    std::string geom_file = args.retrieve<std::string>("geometry"),
+    std::string geom_file = args.retrieve<std::string>("xyz"),
                 mass_file = args.retrieve<std::string>("mass");
     CL::chem::xyz_mass<double> geom(geom_file, mass_file, true);
     std::vector<double> coords = geom.coords();
