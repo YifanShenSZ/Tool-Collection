@@ -1,8 +1,6 @@
-cpp_tools=(translate_IntCoordDef cart2int int2cart vibration)
-
 # build c++ tools
 cd cpp
-for cpp_tool in "${cpp_tools[@]}"; do
+for cpp_tool in translate_IntCoordDef cart2int int2cart vibration; do
     echo
     echo "Entre "$cpp_tool
     cd $cpp_tool
@@ -25,10 +23,6 @@ cd bin
 # link c++ tools
 for cpp_tool in "${cpp_tools[@]}"; do
     ln -s ../cpp/$cpp_tool/build/$cpp_tool.exe
-done
-# link python tools
-for python_tool in ../python/*.py; do
-    ln -s $python_tool
 done
 # finish
 cd ..

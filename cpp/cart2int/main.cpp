@@ -41,7 +41,11 @@ int main(size_t argc, const char ** argv) {
 
     std::ofstream ofs;
     if (args.gotArgument("output")) ofs.open(args.retrieve<std::string>("output"));
-    else ofs.open(CL::utility::split(geom_xyz, '.')[0] + ".int");
+    else {
+        std::string input_file = CL::utility::split(geom_xyz, '/').back();
+        std::string prefix = CL::utility::split(input_file, '.')[0];
+        ofs.open(prefix + ".int");
+    }
     const double * p = q.data_ptr<double>();
     for (size_t j = 0; j < q.numel(); j++) ofs << std::fixed << std::setw(18) << std::setprecision(15) << p[j] << '\n';
     ofs.close();

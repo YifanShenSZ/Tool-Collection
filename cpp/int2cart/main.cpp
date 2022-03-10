@@ -2,8 +2,6 @@
 #include <CppLibrary/utility.hpp>
 #include <CppLibrary/chemistry.hpp>
 
-#include <Foptim/trust_region.hpp>
-
 #include <tchem/utility.hpp>
 #include <tchem/intcoord.hpp>
 
@@ -52,7 +50,11 @@ int main(size_t argc, const char ** argv) {
     CL::chem::xyz<double> output_geom(init_geom.symbols(), final_coords, true);
     std::ofstream ofs;
     if (args.gotArgument("output")) ofs.open(args.retrieve<std::string>("output"));
-    else ofs.open(CL::utility::split(q_file, '.')[0] + ".xyz");
+    else {
+        std::string input_file = CL::utility::split(q_file, '/').back();
+        std::string prefix = CL::utility::split(input_file, '.')[0];
+        ofs.open(prefix + ".xyz");
+    }
     output_geom.print(ofs);
     ofs.close();
 

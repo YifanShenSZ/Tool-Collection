@@ -1,8 +1,6 @@
-cpp_tools=(translate_IntCoordDef cart2int int2cart vibration)
-
 # rebuild c++ tools
 cd cpp
-for cpp_tool in "${cpp_tools[@]}"; do
+for cpp_tool in translate_IntCoordDef cart2int int2cart vibration; do
     echo
     echo "Entre "$cpp_tool
     cd $cpp_tool/build
