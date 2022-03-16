@@ -1,6 +1,8 @@
+cpp_tools=(translate_IntCoordDef cart2int int2cart vibration)
+
 # build c++ tools
 cd cpp
-for cpp_tool in translate_IntCoordDef cart2int int2cart vibration; do
+for cpp_tool in "${cpp_tools[@]}"; do
     echo
     echo "Entre "$cpp_tool
     cd $cpp_tool
